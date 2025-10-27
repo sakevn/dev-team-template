@@ -1,11 +1,51 @@
+<!--
+Two-level HTML menu for local folders shown in your screenshot.
+How to use:
+1. Save this file as `index.html` inside the PARENT folder that contains all those lesson folders.
+2. Open index.html in your browser (double-click). Links use relative paths like `./2.bai2-import-export-js/`.
+3. If your OS blocks file:// navigation, open the folder with a small local server (e.g. `npx serve` or `python -m http.server`).
+-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Học react Tự Học</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Menu 2 cấp - Thư mục học React</title>
+    <link rel="stylesheet" href="react.css" />
   </head>
   <body>
-    <h1>Đây là trang học React</h1>
+    <div class="wrap">
+      <h1>Menu 2 cấp — Thư mục học React (bấm để mở folder)</h1>
+      <div class="search">
+        <input
+          id="filter"
+          type="search"
+          placeholder="Tìm tên folder... (ví dụ: props, useState, bai)"
+        />
+      </div>
+
+      <div class="menu">
+        <nav class="left" aria-label="Nhóm folder">
+          <ul class="group" id="groups"></ul>
+          <div class="hint">
+            Lưu ý: lưu file này ở thư mục CHA chứa tất cả folder để các link
+            hoạt động (ví dụ: save vào `man4.3/`).
+          </div>
+        </nav>
+
+        <section class="right">
+          <div
+            id="title"
+            style="margin-bottom: 10px; color: var(--muted); font-size: 14px"
+          >
+            Chọn một nhóm bên trái hoặc tìm kiếm
+          </div>
+          <div class="items" id="items"></div>
+        </section>
+      </div>
+    </div>
+
+    <script src="react.js"></script>
   </body>
 </html>
